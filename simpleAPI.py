@@ -54,6 +54,10 @@ def handle_errors(func):
 			return {"error": str(e), "success": False}
 	return wrapper
 
+@app.get("/")
+async def root():
+	return {"message": "Hello World", "status": 200}
+
 # 3. Define the endpoint
 @app.post("/generate")
 @handle_errors
